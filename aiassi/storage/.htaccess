@@ -1,0 +1,10 @@
+# Apache 2.4+ compatible rules
+# Allow public access to the uploaded logo files only
+<FilesMatch "^logo\.(png|jpe?g|gif|webp)$">
+    Require all granted
+</FilesMatch>
+
+# Deny direct access to everything else in this folder
+<Files "*">
+    Require all denied
+</Files>

@@ -1,0 +1,38 @@
+# Alumni Portal - Public Directory Configuration
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Handle clean URLs (optional - for future enhancements)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
+
+# Security - Prevent direct access to includes
+<Files "includes/*">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Security - Prevent access to API without proper headers
+<Files "api/*">
+    <RequireAll>
+        Require all granted
+        # Add additional security checks here if needed
+    </RequireAll>
+</Files>
+
+# Prevent access to sensitive directories
+RedirectMatch 403 ^.*/\.(git|svn|env|htaccess|htpasswd).*$
+
+# Enable compression for better performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Set proper MIME types
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/css .css
+    AddType image/svg+xml .svg
+</IfModule>

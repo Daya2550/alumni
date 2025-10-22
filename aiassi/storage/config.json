@@ -1,0 +1,26 @@
+{
+    "provider": "gemini",
+    "openai": {
+        "api_key": ""
+    },
+    "gemini": {
+        "api_key": "AIzaSyDpEfvG4AqSZoMuFdmMgY5c4t4ognlMyuI"
+    },
+    "deepseek": {
+        "api_key": ""
+    },
+    "model": {
+        "gemini": "gemini-1.5-flash-latest",
+        "openai": "gpt-4o-mini",
+        "deepseek": "deepseek-chat"
+    },
+    "rag": {
+        "chunk_size": 1200,
+        "chunk_overlap": 200,
+        "top_k": 4
+    },
+    "ui": {
+        "chat_button_text": "AI",
+        "chat_button_color": "#8dc3a2"
+    }
+}
